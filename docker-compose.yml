@@ -1,0 +1,24 @@
+services:
+  db_app_banco:
+    image: postgres
+    container_name: db_app_banco
+    restart: always
+    ports:
+      - 1234:5432
+    env_file:
+      - .env
+    volumes:
+      - pg_app_banco:/var/lib/postgresql/data
+
+  node_app-banco:
+    container_name: node_app_banco
+    build: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - db_app_banco
+    env_file:
+      - .env
+
+volumes:
+  pg_app_banco:
