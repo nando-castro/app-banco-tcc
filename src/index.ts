@@ -44,6 +44,15 @@ app.put("/users/:id", async (req: Request, res: Response) => {
   return res.sendStatus(200);
 });
 
+app.get("/users/:id", async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const user = await prisma.user.findUnique({
+    where: {
+      id: Number(id),
+    },
+  });
+});
+
 const port = 5000;
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);
