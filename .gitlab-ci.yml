@@ -1,0 +1,38 @@
+# Define a imagem base que será usada para a execução das tarefas
+image: ubuntu:latest
+
+# Define os estágios da pipeline
+stages:
+  - build
+  - test
+  - deploy
+
+# Defina as tarefas em cada estágio
+# As tarefas serão executadas na ordem em que são definidas em cada estágio
+
+# Exemplo de tarefa para a fase de build
+build:
+  stage: build
+  script:
+    - echo "Fase de build - Coloque aqui os comandos para compilar seu código"
+
+# Exemplo de tarefa para a fase de testes
+test:
+  stage: test
+  script:
+    - echo "Fase de testes - Coloque aqui os comandos para executar seus testes automatizados"
+
+# Exemplo de tarefa para a fase de deploy
+deploy:
+  stage: deploy
+  script:
+    - echo "Fase de deploy - Coloque aqui os comandos para implantar seu aplicativo"
+
+# Exemplo de tarefa que será executada manualmente quando você clicar em "Play" no GitLab
+deploy_manual:
+  stage: deploy
+  script:
+    - echo "Implantação manual - Coloque aqui os comandos para implantação manual"
+
+  # Define que essa tarefa deve ser acionada manualmente
+  when: manual
