@@ -16,14 +16,7 @@ jobs:
           file_name: .env.test
       # - name: Run tests
         # run: docker-compose -f docker-compose-test.yml run node_students_app npm run test
+      - name: Deploy Prisma
+        run: npm run prisma:deploy
       - name: Build
         run: npm i && npm run build
-      # - name: Build Docker image
-        # run: docker build -t nome_da_sua_imagem .
-      - name: Deploy
-        run: |
-          echo "Deploying to Heroku"
-          # heroku login -i
-          # heroku container:login
-          # heroku container:push web -a nome_do_seu_app
-          # heroku container:release web -a nome_do_seu_app
