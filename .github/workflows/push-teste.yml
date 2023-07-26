@@ -16,7 +16,7 @@ jobs:
           envkey_POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD}}
           envkey_POSTGRES_DB: ${{secrets.POSTGRES_DB}}
           envkey_DATABASE_URL: "postgresql://${{secrets.POSTGRES_USER}}:${{secrets.POSTGRES_PASSWORD}}@db_students_postgres:5432/${{secrets.POSTGRES_DB}}"
-          file_name: .env.testza/create-envfile@v1.3
+          file_name: .env.test
       - name: Deploy Prisma to migrations
         run: npm run prisma:deploy
       - name: Build
