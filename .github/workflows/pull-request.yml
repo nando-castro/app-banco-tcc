@@ -16,7 +16,7 @@ jobs:
           file_name: .env.test
       # - name: Run tests
         # run: docker-compose -f docker-compose-test.yml run node_students_app npm run test
-      - name: Deploy Prisma
+      - name: Deploy Prisma to migrations
         run: npm run prisma:deploy
       - name: Build
         run: npm i && npm run build
